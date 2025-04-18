@@ -8,7 +8,6 @@ const Contact = () => {
         <p className="text-gray-600 max-w-2xl mx-auto">
           We&apos;re here to help! Reach out to us through any of the following methods.
         </p>
-        <p className="text-gray-600">Don&apos;t hesitate to reach out!</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="group relative bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">

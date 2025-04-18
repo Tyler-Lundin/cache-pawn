@@ -66,7 +66,7 @@ const Reviews = () => {
     {
       author: 'Matthew Barraclough',
       location: 'Logan, UT',
-      content: "Brought in a guitar worth ~600 and he offered me $100. Less than half of the minimum I would have expected or considered and he didn't even look at the guitar. Don't sell here unless you want your intelligence insulted.",
+      content: "Brought in a guitar worth ~600 and he offered me $100. Less than half of the minimum I would have expected or considered and he didn&apos;t even look at the guitar. Don&apos;t sell here unless you want your intelligence insulted.",
       rating: 1
     }
   ];

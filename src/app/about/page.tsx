@@ -2,7 +2,13 @@ import ParallaxBackground from '@/components/ParallaxBackground';
 import ImageSlideshow from '@/components/ImageSlideshow';
 import { BackButton } from '@/components/BackButton';
 import PageHero from '@/components/PageHero';
-import { storeImages } from '@/lib/constants';
+
+const storeImages = [
+  '/images/store1.jpg',
+  '/images/store2.jpg',
+  '/images/store3.jpg',
+  '/images/store4.jpg',
+];
 
 export default function AboutPage() {
   return (
@@ -10,10 +16,8 @@ export default function AboutPage() {
       <ParallaxBackground />
       <BackButton />
 
-      <PageHero 
-        title="Our Story"
-        subtitle="Serving the Logan community with integrity and excellence for over 20 years"
-      />
+      {/* Hero Section */}
+<PageHero title="About Us" subtitle="Serving the Logan community with integrity and excellence for over 20 years" />
 
       {/* Main Content */}
       <section className="py-16">
