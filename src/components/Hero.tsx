@@ -23,7 +23,7 @@ const Hero = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
-              href="/#services" 
+              href="/services" 
               className="px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl font-semibold hover:opacity-90 transition-all hover:scale-105 shadow-lg hover:shadow-amber-500/20"
             >
               Our Services

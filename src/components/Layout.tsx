@@ -2,6 +2,7 @@
 import Navbar from './Navbar';
 import Logo from './Logo';
 import ParallaxBackground from './ParallaxBackground';
+import Link from 'next/link';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -25,9 +26,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><a href="#services" className="text-gray-600 hover:text-amber-500 transition-colors">Services</a></li>
-                <li><a href="#reviews" className="text-gray-600 hover:text-amber-500 transition-colors">Reviews</a></li>
-                <li><a href="#contact" className="text-gray-600 hover:text-amber-500 transition-colors">Contact</a></li>
+                <li><Link href="/services" className="text-gray-600 hover:text-amber-500 transition-colors">Services</Link></li>
+                <li><Link href="/about" className="text-gray-600 hover:text-amber-500 transition-colors">About</Link></li>
+                <li><Link href="/contact" className="text-gray-600 hover:text-amber-500 transition-colors">Contact</Link></li>
+                <li><Link href="/privacy" className="text-gray-600 hover:text-amber-500 transition-colors">Privacy</Link></li>
               </ul>
             </div>
             <div>
