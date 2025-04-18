@@ -1,18 +1,15 @@
-import Layout from '@/components/Layout';
-import Services from '@/components/Services';
+import Hero from '@/components/Hero';
 import Reviews from '@/components/Reviews';
 import Contact from '@/components/Contact';
-import Hero from '@/components/Hero';
+import About from '@/components/About';
 
 export default function Home() {
   return (
-    <Layout>
-      <div className="space-y-24 -z-10">
-        <Hero />
-        <Services />
-        <Reviews />
-        <Contact />
-      </div>
-    </Layout>
+    <main>
+      <Hero />
+      <About />
+      <Reviews />
+      <Contact />
+    </main>
   );
 }

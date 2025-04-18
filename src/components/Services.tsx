@@ -19,7 +19,7 @@ const Services = () => {
           Our <span className="text-amber-500">Services</span>
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          We offer a wide range of services to meet your needs. Whether you're looking to pawn, buy, or get a loan, we've got you covered.
+          We offer a wide range of services to meet your needs. Whether you&apos;re looking to pawn, buy, or get a loan, we&apos;ve got you covered.
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">

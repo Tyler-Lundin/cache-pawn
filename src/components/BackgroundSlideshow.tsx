@@ -25,7 +25,7 @@ const BackgroundSlideshow = ({
   }, [images.length, interval]);
 
   return (
-    <div className={`absolute inset-0 overflow-hidden ${className}`}>
+    <div className={`absolute inset-0 overflow-hidden ${className} bg-white/50`}>
       {images.map((src, index) => (
         <div
           key={src}
@@ -37,7 +37,7 @@ const BackgroundSlideshow = ({
             src={src}
             alt=""
             fill
-            className="object-cover grayscale blur-sm"
+            className="object-cover sepia blur-[1.5px]"
             priority={index === 0}
           />
         </div>

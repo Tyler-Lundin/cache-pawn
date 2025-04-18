@@ -68,14 +68,17 @@ export default function Navbar() {
             <Link href="/" className="text-black hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105">
               Home
             </Link>
-            <a href="#services" className="text-black hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px]">
-              Services
-            </a>
             <Link href="/about" className="text-black hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105">
               About
             </Link>
+            <Link href="/services" className="text-black hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105">
+              Services
+            </Link>
             <Link href="/contact" className="text-black hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105">
               Contact
+            </Link>
+            <Link href="/privacy" className="text-black hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105">
+              Privacy
             </Link>
           </div>
         </div>
@@ -96,14 +99,18 @@ export default function Navbar() {
             <Link href="/" className="text-black hover:text-gray-600 transition-colors duration-200">
               Home
             </Link>
-            <a href="#services" className="text-black hover:text-gray-600 transition-colors duration-200">
-              Services
-            </a>
+
             <Link href="/about" className="text-black hover:text-gray-600 transition-colors duration-200">
               About
             </Link>
+            <Link href="/services" className="text-black hover:text-gray-600 transition-colors duration-200">
+              Services
+            </Link>
             <Link href="/contact" className="text-black hover:text-gray-600 transition-colors duration-200">
               Contact
+            </Link>
+            <Link href="/privacy" className="text-black hover:text-gray-600 transition-colors duration-200">
+              Privacy
             </Link>
           </div>
 
