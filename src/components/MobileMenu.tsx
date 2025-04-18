@@ -105,6 +105,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 >
                   Contact
                 </Link>
+                <Link
+                  href="/privacy"
+                  className="block text-lg text-black hover:text-gray-600 transition-colors duration-200"
+                  onClick={onClose}
+                >
+                  Privacy
+                </Link>
               </li>
             </ul>
           </nav>
