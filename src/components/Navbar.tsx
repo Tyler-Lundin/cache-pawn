@@ -4,10 +4,15 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import MobileMenu from './MobileMenu';
 import Logo from './Logo';  
+import { usePathname } from 'next/navigation';
+
+const activeLinkStyle = 'blur-[1px] opacity-50 pointer-events-none text-red-400';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,19 +70,19 @@ export default function Navbar() {
           <div className={`hidden md:flex w-full bg-white border-y border-black py-1 justify-center space-x-8 transition-all duration-300 ${
             isScrolled ? 'opacity-0 -translate-y-20' : 'opacity-100'
           }`}>
-            <Link href="/" className="text-black hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105">
+            <Link href="/" className={`${pathname === '/' ? activeLinkStyle : ''} hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105`}>
               Home
             </Link>
-            <Link href="/about" className="text-black hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105">
+            <Link href="/about" className={`${pathname === '/about' ? activeLinkStyle : ''} hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105`}>
               About
             </Link>
-            <Link href="/services" className="text-black hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105">
+            <Link href="/services" className={`${pathname === '/services' ? activeLinkStyle : ''} hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105`}>
               Services
             </Link>
-            <Link href="/contact" className="text-black hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105">
+            <Link href="/contact" className={`${pathname === '/contact' ? activeLinkStyle : ''} hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105`}>
               Contact
             </Link>
-            <Link href="/privacy" className="text-black hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105">
+            <Link href="/privacy" className={`${pathname === '/privacy' ? activeLinkStyle : ''} hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105`}>
               Privacy
             </Link>
           </div>
@@ -96,20 +101,20 @@ export default function Navbar() {
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex w-full justify-center space-x-8">
-            <Link href="/" className="text-black hover:text-gray-600 transition-colors duration-200">
+            <Link href="/" className={`${pathname === '/' ? activeLinkStyle : ''} hover:text-gray-600 transition-all duration-200 blur-[0px] hover:blur-[1px] hover:scale-105`}>
               Home
             </Link>
 
-            <Link href="/about" className="text-black hover:text-gray-600 transition-colors duration-200">
+            <Link href="/about" className={`${pathname === '/about' ? activeLinkStyle : ''} hover:text-gray-600 transition-colors duration-200`}>
               About
             </Link>
-            <Link href="/services" className="text-black hover:text-gray-600 transition-colors duration-200">
+            <Link href="/services" className={`${pathname === '/services' ? activeLinkStyle : ''} hover:text-gray-600 transition-colors duration-200`}>
               Services
             </Link>
-            <Link href="/contact" className="text-black hover:text-gray-600 transition-colors duration-200">
+            <Link href="/contact" className={`${pathname === '/contact' ? activeLinkStyle : ''} hover:text-gray-600 transition-colors duration-200`}>
               Contact
             </Link>
-            <Link href="/privacy" className="text-black hover:text-gray-600 transition-colors duration-200">
+            <Link href="/privacy" className={`${pathname === '/privacy' ? activeLinkStyle : ''} hover:text-gray-600 transition-colors duration-200`}>
               Privacy
             </Link>
           </div>

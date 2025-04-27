@@ -1,12 +1,12 @@
 const Logo = ({ fullLogo = false }: { fullLogo?: boolean }) => {
   return (
-    <div className="grid items-center justify-center text-center">
+    <div className="grid items-center justify-center text-center w-fit">
       {/* FAST CACHE part */}
-      <div className="relative flex items-center justify-center">
+      <div className="relative flex items-center justify-center -mb-2">
         {fullLogo ? (
           <>
-            <div className="text-amber-500 text-md font-bold">FAST</div>
-            <div className="text-amber-500 text-md">CACHE</div>
+            <div className="text-amber-500 text-2xl font-bold">FAST</div>
+            <div className="text-amber-500 text-2xl">CACHE</div>
           </>
         ) : (
           <>

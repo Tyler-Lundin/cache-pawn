@@ -1,92 +1,107 @@
-import { BackButton } from '@/components/BackButton';
-import ParallaxBackground from '@/components/ParallaxBackground';
+'use client';
+
 import PageHero from '@/components/PageHero';
+import Layout from '@/components/Layout';
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-white/90">
-      <ParallaxBackground />
-      <BackButton />
+    <Layout>
 
+      {/* Hero */}
       <PageHero 
         title="Privacy Policy"
-        subtitle="Your privacy is very important to us"
+        subtitle="Your trust matters. Here's how we protect it."
       />
 
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none">
-            <p className="text-gray-600 mb-8">
-              Your privacy is very important to us. This policy explains how we collect, use, and protect your personal information.
-            </p>
+      {/* Policy Content */}
+      <section className="py-24 px-6 bg-gradient-to-b from-white to-gray-100">
+        <div className="max-w-4xl mx-auto flex flex-col space-y-16">
 
-            <ul className="space-y-4 text-gray-600">
-              <li className="flex items-start">
-                <span className="text-amber-500 mr-2">•</span>
-                <span>We identify the purposes for which information is being collected at or before the time of collection.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-amber-500 mr-2">•</span>
-                <span>We collect and use personal information solely to fulfill those purposes and for related uses, unless we obtain your consent or are required by law.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-amber-500 mr-2">•</span>
-                <span>We retain personal information only as long as needed to fulfill those purposes.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-amber-500 mr-2">•</span>
-                <span>We collect personal data lawfully and fairly, and where appropriate, with your knowledge or consent.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-amber-500 mr-2">•</span>
-                <span>We aim to keep personal data relevant, accurate, and up to date for its intended purpose.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-amber-500 mr-2">•</span>
-                <span>We safeguard your personal information against unauthorized access, loss, misuse, or alteration using reasonable security measures.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-amber-500 mr-2">•</span>
-                <span>We provide information about our privacy policies and practices upon request.</span>
-              </li>
+          {/* Intro */}
+          <div className="space-y-6 text-center">
+            <p className="text-gray-700 text-lg leading-relaxed">
+              At Fast Cache Pawn, your privacy isn&apos;t just a policy — it&apos;s a priority.  
+              Here&apos;s how we protect your information, keep it confidential, and operate with transparency.
+            </p>
+          </div>
+
+          {/* Main Policy Points */}
+          <div className="space-y-10">
+            <SectionTitle title="How We Handle Your Information" />
+            <ul className="space-y-4">
+              {[
+                "We collect information only for specific, clear purposes.",
+                "We use your data only for what we told you — nothing else.",
+                "We store personal info only as long as needed, not forever.",
+                "We collect everything lawfully, fairly, and with your knowledge.",
+                "We work to keep your info accurate and updated.",
+                "We protect your data from unauthorized access or loss.",
+                "We explain our practices clearly if you ever ask.",
+              ].map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-gray-700">
+                  <span className="text-amber-500 text-xl leading-none">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
+          </div>
 
-            <h2 className="text-xl font-semibold text-gray-900 mt-12">Cookies & Tracking</h2>
-            <p className="text-gray-600">
-              Our website may use cookies or similar technologies to enhance user experience and analyze traffic. You can adjust your browser settings to disable cookies if you prefer.
+          {/* Cookies */}
+          <div className="space-y-6">
+            <SectionTitle title="Cookies & Tracking" />
+            <p className="text-gray-700 leading-relaxed">
+              We use cookies to help you have a smoother experience on our site and to understand how people use it.  
+              If you prefer not to allow cookies, you can always change your browser settings.
             </p>
+          </div>
 
-            <h2 className="text-xl font-semibold text-gray-900 mt-8">Third-Party Services</h2>
-            <p className="text-gray-600">
-              We may use third-party services (such as analytics or hosting providers) that collect, monitor, or process data on our behalf. These services are contractually obligated to handle your data responsibly.
+          {/* Third Parties */}
+          <div className="space-y-6">
+            <SectionTitle title="Third-Party Services" />
+            <p className="text-gray-700 leading-relaxed">
+              Sometimes we work with trusted partners (like analytics and hosting providers).  
+              They handle your data responsibly under strict agreements.
             </p>
+          </div>
 
-            <h2 className="text-xl font-semibold text-gray-900 mt-8">Your Rights</h2>
-            <p className="text-gray-600">
-              You have the right to request access to your personal data, ask for corrections, or request deletion of your information. You may also opt out of communications or data collection where applicable. To exercise these rights, contact us using the details below.
+          {/* Your Rights */}
+          <div className="space-y-6">
+            <SectionTitle title="Your Rights" />
+            <p className="text-gray-700 leading-relaxed">
+              You have the right to see what data we have, fix it if it&apos;s wrong, or ask us to delete it.  
+              You can also opt out of certain communications anytime.
             </p>
+          </div>
 
-            <p className="text-gray-600 mt-8">
-              We are committed to protecting your privacy and operating in compliance with applicable data protection laws.
+          {/* Contact Box */}
+          <div className="p-8 bg-white/90 rounded-xl shadow-md space-y-4 text-center">
+            <h2 className="text-2xl font-bold text-gray-900">
+              Need to Reach Us?
+            </h2>
+            <p className="text-gray-700">
+              Questions about your privacy? Want to make a request?  
+              We&apos;re here to help.
             </p>
-
-            <div className="mt-12 p-6 bg-gray-50 rounded-xl">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
-              <p className="text-gray-600">
-                If you have any questions about our Privacy Policy or wish to exercise your privacy rights, please contact us at:
-              </p>
-              <p className="text-gray-600 mt-2">
-                Privacy Officer<br />
-                Fast Cache Pawn<br />
-                527 Main St<br />
-                Logan, UT 84321<br />
-                Phone: 435-753-2316<br />
-                Email: info@fastcachepawn.com
-              </p>
+            <div className="text-gray-700 mt-4 space-y-1">
+              <p>Privacy Officer, Fast Cache Pawn</p>
+              <p>527 Main St, Logan, UT 84321</p>
+              <p>Phone: (435) 753-2316</p>
+              <p>Email: info@fastcachepawn.com</p>
             </div>
           </div>
+
         </div>
       </section>
-    </main>
+    </Layout>
+  );
+}
+
+/* --- Small reusable --- */
+
+function SectionTitle({ title }: { title: string }) {
+  return (
+    <h2 className="text-2xl font-bold text-gray-900 border-l-4 border-amber-500 pl-4">
+      {title}
+    </h2>
   );
 }

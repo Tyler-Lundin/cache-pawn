@@ -1,8 +1,24 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['lh3.googleusercontent.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'maps.googleapis.com',
+        pathname: '/maps/api/place/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'maps.gstatic.com',
+        pathname: '/maps/api/place/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        pathname: '/**',
+      },
+    ],
   },
-}
+};
 
-module.exports = nextConfig 
+module.exports = nextConfig; 
