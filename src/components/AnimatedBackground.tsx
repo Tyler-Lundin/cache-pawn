@@ -1,73 +1,81 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 
 const AnimatedBackground = ({ children }: { children: React.ReactNode }) => {
-  useEffect(() => {
-    // Inject keyframes manually in the browser
-    const stylesString = `
-      @keyframes rotateSlow {
-        from { transform: rotate(45deg); }
-        to { transform: rotate(405deg); }
-      }
-      @keyframes rotateMedium {
-        from { transform: rotate(90deg); }
-        to { transform: rotate(450deg); }
-      }
-      @keyframes rotateFast {
-        from { transform: rotate(120deg); }
-        to { transform: rotate(480deg); }
-      }
-    `;
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationRef = useRef<number | null>(null);
 
-    const styleSheet = document.createElement("style");
-    styleSheet.innerText = stylesString;
-    document.head.appendChild(styleSheet);
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    const handleResize = () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    const layers = [
+      { spacing: 130, dotSize: 3, speed: 0.0002, color: "rgba(255, 255, 255, 0.3)", rotation: 0 },
+      { spacing: 100, dotSize: 2, speed: 0.0004, color: "rgba(255, 255, 255, 0.4)", rotation: 0 },
+      { spacing: 70, dotSize: 1.5, speed: 0.0006, color: "rgba(255, 255, 255, 0.5)", rotation: 0 },
+    ];
+
+    const draw = () => {
+      if (!ctx) return;
+
+      ctx.clearRect(0, 0, width, height);
+
+      layers.forEach((layer) => {
+        ctx.save();
+        ctx.translate(width / 2, height / 2);
+        ctx.rotate(layer.rotation);
+
+        ctx.fillStyle = layer.color;
+        for (let x = -width; x < width; x += layer.spacing) {
+          for (let y = -height; y < height; y += layer.spacing) {
+            ctx.beginPath();
+            ctx.arc(x, y, layer.dotSize, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        ctx.restore();
+
+        layer.rotation += layer.speed;
+      });
+
+      animationRef.current = requestAnimationFrame(draw);
+    };
+
+    draw();
 
     return () => {
-      document.head.removeChild(styleSheet); // Cleanup when component unmounts
+      cancelAnimationFrame(animationRef.current!);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
-    <div className="overflow-hidden relative">
-      <div className="z-50 relative">{children}</div>
-      <div className="z-30" style={{ ...styles.layer, ...styles.layer1 }} />
-      <div className="z-30" style={{ ...styles.layer, ...styles.layer2 }} />
-      <div className="z-30" style={{ ...styles.layer, ...styles.layer3 }} />
-
+    <div className="relative overflow-hidden w-full h-full min-h-[calc(100vh-100px)]">
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none"
+      />
+      <div className="relative z-10 h-full flex items-center justify-center">{children}</div>
     </div>
   );
-};
-
-const styles: Record<string, React.CSSProperties> = {
-  layer: {
-    position: "absolute",
-    top: "-50%", // Expand beyond the viewport for smooth cropping
-    left: "-50%",
-    width: "200%",
-    height: "200%",
-    backgroundRepeat: "repeat",
-    animationTimingFunction: "linear",
-    animationIterationCount: "infinite",
-  },
-  layer1: {
-    backgroundImage: "radial-gradient(white 3px, transparent 2px)",
-    opacity: 0.3,
-    animation: "rotateSlow 560s linear infinite ",
-    backgroundSize: "150px 150px",
-  },
-  layer2: {
-    backgroundImage: "radial-gradient(white 2px, transparent 2px)",
-    opacity: 0.5,
-    animation: "rotateMedium 550s linear infinite ",
-    backgroundSize: "150px 150px",
-  },
-  layer3: {
-    backgroundImage: "radial-gradient(white 1px, transparent 2px)",
-    backgroundSize: "150px 150px",
-    opacity: 0.5,
-    animation: "rotateFast 540s linear infinite",
-  },
 };
 
 export default AnimatedBackground;

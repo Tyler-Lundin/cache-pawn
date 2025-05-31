@@ -1,6 +1,5 @@
 'use client';
 
-import { BackButton } from '@/components/BackButton';
 import PageHero from '@/components/PageHero';
 import ServicesGrid from '@/components/ServicesGrid';
 import Layout from '@/components/Layout';
@@ -8,8 +7,6 @@ import Layout from '@/components/Layout';
 export default function ServicesPage() {
   return (
     <Layout>
-      <BackButton />
-
       <PageHero 
         title="Our Services"
         subtitle="Comprehensive pawn and loan services to meet your needs"

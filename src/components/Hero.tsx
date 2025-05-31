@@ -45,6 +45,7 @@ const Hero = () => {
 
       </div>
       </AnimatedBackground>
+
     </section>
   );
 };

@@ -28,6 +28,8 @@ const ServicesGrid = () => {
                 src={service.bg}
                 alt={`${service.name} background`}
                 fill
+                quality={50}
+                loading="lazy"
                 className="object-cover object-center opacity-30"
                 sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
                 priority={index < 3} // prioritize first few for faster paint
